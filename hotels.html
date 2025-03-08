@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyedge - Travel Further</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .logo-front{
+
+          width: 100px;
+          margin-right: -14px;
+        }
+        
+        .polaroid {
+            background-color: white;
+            padding: 10px 10px 30px 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: rotate(0deg);
+            transition: all 0.3s ease;
+            
+        }
+        
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+        
+        .cloud-divider {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 900px;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            text-align: center;
+        }
+        .card img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .card p {
+            font-size: 14px;
+            color: gray;
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: rgb(161, 200, 241);
+  --secondary-color: #e8e8e8;
+  --text-dark: #0f172a;
+  --text-light: #68717e;
+  --white: #ffffff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.section__container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 10px;
+  text-align: center;
+  margin-top: 10px;
+  
+  zoom: 0.8;
+}
+
+.section__container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.section__container h1 {
+  position: relative;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.section__container h1::after {
+  position: absolute;
+  content: "";
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 5rem;
+  background-color: var(--primary-color);
+}
+
+.section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.section__card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 5rem 2rem 2rem;
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.section__card::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  background-color: var(--primary-color);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.section__card span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  font-size: 3rem;
+  color: var(--white);
+}
+
+.section__card h4 {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black;
+  transition: 0.3s;
+}
+
+.section__card p {
+  margin-bottom: 2rem;
+  color: var(--text-light);
+  transition: 0.3s;
+}
+
+.section__card img {
+  margin-bottom: 1rem;
+  max-width: 100px;
+  border-radius: 100%;
+  border: 2px solid var(--primary-color);
+  transition: 0.3s;
+}
+
+.section__card h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: black;
+  transition: 0.3s;
+}
+
+.section__card h6 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-light);
+  transition: 0.3s;
+}
+
+.section__card:hover{
+  box-shadow: 2px 2px 50px rgb(144, 213, 236);
+  
+}
+.section__card:hover::before {
+  width: 400%;
+}
+
+.section__card:hover :is(h4, h5) {
+  color: black;
+}
+
+.section__card:hover :is(p, h6) {
+  color: var(--white);
+}
+
+.section__card:hover img {
+  border-color: var(--white);
+}
+
+.img-test{
+  margin-left: 100px;
+}
+
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .cloud-divider {
+      height: 120px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: -1px;
+    }
+    
+    .faq-section {
+      background-color: #d7f1fd;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .faq-item {
+      transition: all 0.4s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      position: relative;
+      padding-left: 36px;
+    }
+    
+    .faq-question:before {
+      content: "•";
+      position: absolute;
+      left: 10px;
+      color: #0072ff;
+      font-size: 20px;
+      top: 0px;
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      line-height: 1.7;
+    }
+    
+    .faq-answer.active {
+      max-height: 500px;
+      opacity: 1;
+      padding: 0.75rem 0 1.25rem 2.5rem;
+    }
+    
+    .faq-toggle {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.4s ease;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba(0, 114, 255, 0.1);
+    }
+    
+    .faq-toggle svg {
+      width: 12px;
+      height: 12px;
+      transition: transform 0.4s ease;
+    }
+    
+    .faq-toggle.active svg {
+      transform: rotate(180deg);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, #0072ff, #00c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    
+    @media (max-width: 640px) {
+      .cloud-divider {
+        height: 70px;
+      }
+      
+      .faq-question:before {
+        left: 8px;
+      }
+      
+      .faq-question {
+        padding-left: 30px;
+      }
+    }
+
+    
+    .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 300px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            z-index: 10;
+            display: none;
+            padding: 12px;
+            margin-top: 8px;
+        }
+
+      
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar fixed w-full z-50 flex items-center justify-between py-4 px-6 md:px-12">
+        <div class="flex items-center">
+            <a href="#" class="flex items-center">
+                <img class="logo-front" src="photo/logo-font.png">
+                <span class="font-bold text-xl text-gray-900">VOYEDGE</span>
+            </a>
+        </div>
+        
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="voybot.html" class="font-medium text-gray-900 hover:text-blue-600 transition " target="_blank">VOYBOT</a>
+            <a href="#" class="font-medium text-gray-900 hover:text-blue-600 transition ">PLAN TRIP</a>
+            <a href="hotels.html" class="font-medium text-gray-900 hover:text-blue-600 transition">HOTEL</a>
+            <a href="flight.html" class="font-medium text-gray-900 hover:text-blue-600 transition">FLIGHTS</a>
+            <a href="#" class="font-medium text-gray-900 hover:text-blue-600 transition">SAFE TAXI</a>
+        </div>
+        <div>
+          <a href="#" class="font-medium text-gray-900 hover:text-blue-600 transition">MY TRIPS</a>
+        </div>
+        
+        <div class="md:hidden">
+            <button class="text-gray-900 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen bg-sky-100 pt-24 overflow-hidden">
+        <div class="container mx-auto px-6 md:px-12 pt-20 pb-32 relative z-10">
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full md:w-7/12 z-20">
+                    <!-- Search Bar -->
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12 text-left ">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-200">
+                                <div class="p-4">
+                                    <div class="text-xl font-semibold text-gray-500 mb-1 ">Where </div>
+                                    <input type="text" placeholder="Add Destination" class="w-full border-none focus:outline-none text-sm text-gray-700 font-medium ">
+                                    <div class="dropdown" id="destination-dropdown">
+                                      <div class="destination-suggestions" id="destination-suggestions">
+                                          <!-- Will be populated by JavaScript -->
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-200">
+                              <div class="p-4">
+                                  <div class="text-xl font-semibold text-gray-500 mb-1 text-3xl">Check In</div>
+                                  <input type="text" placeholder="Check In" class="w-full border-none focus:ring-0 text-sm text-gray-700 font-medium">
+                              </div>
+                          </div>
+                          <div class="w-full md:w-1/3 border-b md:border-b-0 md:border-r border-gray-200">
+                            <div class="p-4">
+                                <div class="text-xl font-semibold text-gray-500 mb-1 text-3xl">Check Out</div>
+                                <input type="text" placeholder="Check In" class="w-full border-none focus:ring-0 text-sm text-gray-700 font-medium">
+                            </div>
+                        </div>
+                            <div class="w-full md:w-1/3 flex items-center">
+                                <div class="p-4 flex-grow">
+                                    <div class="text-xl font-semibold text-gray-500 mb-1">Guests</div>
+                                    <select>
+                                      
+                                      <option>1 Guests</option>
+                                      <option>2 Guests</option>
+                                      <option>3 Guests</option>
+                                      <option>4 Guests</option>
+                                      <option>5 Guests</option>
+                                      <option>6 Guests</option>
+                                      <option>7 Guests</option>
+                                      <option>8 Guests</option>
+                                      <option>9 Guests</option>
+                                      <option>10 Guests</option>
+                                      
+                                    </select>
+                                    
+                                </div>
+                                <div class="pr-4">
+                                    <button class="h-12 w-12 rounded-lg bg-blue-600 text-white flex items-center justify-center transition hover:bg-blue-700">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tagline -->
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-wider mb-6 drop-shadow-sm">
+                        VOYAGE FURTHER WITH VOYEDGE
+                    </h1>
+                    
+                    <!-- Sign In Button -->
+                    <button class="bg-white border border-gray-300 rounded-full px-6 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
+                        sign in or register
+                    </button>
+                </div>
+                
+                <!-- Polaroid Images -->
+                <div class="w-full md:w-5/12 relative hidden md:block">
+                    <div class="polaroid absolute right-8 top-10 rotate-3">
+                        <img src="photo/WhatsApp Image 2025-03-08 at 12.01.53.jpeg" alt="Travel Destination" class="w-32 h-24 object-cover">
+                    </div>
+                    <div class="polaroid absolute right-32 top-40 -rotate-6">
+                        <img src="photo/WhatsApp Image 2025-03-08 at 12.01.25.jpeg" alt="Travel Destination" class="w-32 h-24 object-cover">
+                    </div>
+                    <div class="polaroid absolute right-0 top-52 rotate-6">
+                        <img src="WhatsApp Image 2025-03-08 at 12.05.28.jpeg" alt="Travel Destination" class="w-32 h-24 object-cover">
+                    </div>
+                    <div class="polaroid absolute right-40 top-20 -rotate-3">
+                        <img src="photo/WhatsApp Image 2025-03-08 at 12.03.34.jpeg" alt="Travel Destination" class="w-32 h-24 object-cover">
+                    </div>
+                    <div class="polaroid absolute right-20 top-80 rotate-12">
+                        <img src="photo/WhatsApp Image 2025-03-08 at 16.08.12.jpeg" alt="Travel Destination" class="w-32 h-24 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <!-- Cloud Divider -->
+        <svg class="cloud-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="white" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,213.3C384,203,480,213,576,234.7C672,256,768,288,864,282.7C960,277,1056,235,1152,208C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            <!-- Additional cloud-like bumps -->
+            <path fill="white" fill-opacity="0.7" d="M0,224L60,218.7C120,213,240,203,360,197.3C480,192,600,192,720,208C840,224,960,256,1080,261.3C1200,267,1320,245,1380,234.7L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            <!-- More subtle cloud details -->
+            <path fill="white" fill-opacity="0.4" d="M0,160L48,170.7C96,181,192,203,288,186.7C384,171,480,117,576,122.7C672,128,768,192,864,192C960,192,1056,128,1152,117.3C1248,107,1344,149,1392,170.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </section>
+
+    <!--slidebar start-->
+
+    
+
+    <section class="relative">
+
+    </section>
+
+    <div class="container mx-10 my-20 cursor-pointer">
+      <h2 class="font-bold text-2xl ">For travel pros</h2>
+      <div class="cards">
+          <div class="card">
+              <img src="photo/—Pngtree—air plane flight route with_4230918.png" alt="Best Time to Travel">
+              <h3>Best Time to Travel</h3>
+              <p>Know when to save</p>
+          </div>
+          <div class="card">
+              <img src="explore.png" alt="Explore">
+              <h3>Explore</h3>
+              <p>See destinations on your budget</p>
+          </div>
+          <div class="card">
+              <img src="trips.png" alt="Trips">
+              <h3>Trips</h3>
+              <p>Keep all your plans in one place</p>
+          </div>
+          <div class="card">
+              <img src="price-alerts.png" alt="Price Alerts">
+              <h3>Price Alerts</h3>
+              <p>Know when prices change</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- Hopper-style Cloud Divider -->
+  <div class="cloud-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" class="h-full w-full">
+      <path fill="#d7f1fd" fill-opacity="1" d="M0,160L48,170.7C96,181,192,203,288,213.3C384,224,480,224,576,192C672,160,768,96,864,80C960,64,1056,96,1152,122.7C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+  </div>
+  
+  <!-- FAQ Section -->
+  <section class="faq-section py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-2 gradient-text">FAQs</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Find answers to commonly asked questions about using the VOYEDGE travel platform</p>
+      
+      <div class="space-y-5">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">Do I need to create an account to use VOYEDGE?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">Yes, you need to create a free account to fully utilize all of VOYEDGE's features. Creating an account allows us to save your preferences, track your searches, and provide personalized travel recommendations. The sign-up process takes less than a minute, and you can register using your email or social media accounts.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">How does VOYEDGE generate travel recommendations?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">VOYEDGE uses AI technology to analyze your preferences, budget constraints, travel history, and current travel trends to generate personalized recommendations. Our algorithm also factors in seasonal data, local events, and user reviews to suggest destinations and activities that match your interests. The more you use VOYEDGE, the better it gets at predicting your travel preferences.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">Can I compare different travel options on VOYEDGE?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">Yes, VOYEDGE allows you to compare different travel options side by side. You can compare prices, itineraries, accommodations, flight options, and more. Our comparison tool makes it easy to see the differences and make an informed decision based on your priorities, whether they're cost, convenience, or specific amenities.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">How does VOYEDGE track price fluctuations?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">VOYEDGE continuously monitors prices across hundreds of travel providers in real-time. Our price tracking system alerts you when there are significant price drops or increases for your saved trips. You can set up price alerts for specific destinations or travel dates, and we'll notify you when it's the optimal time to book based on historical pricing data and predicted future trends.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">Can I customize my itinerary after AI-generated recommendations?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">Absolutely! While our AI provides a starting point with personalized recommendations, you have complete freedom to customize every aspect of your itinerary. You can add or remove activities, change accommodations, adjust travel dates, and modify transportation options. Our flexible itinerary builder allows you to fine-tune your travel plans to perfectly match your preferences.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 6 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">Does VOYEDGE work for international travel?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">Yes, VOYEDGE supports international travel across more than 190 countries. Our platform provides information about visa requirements, local customs, currency exchange rates, and travel advisories. We also offer translation services and international support to ensure you have a smooth experience no matter where your adventures take you.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 7 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">What if my plans change? Can I update my trip?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">Yes, you can easily update your trip details at any time. VOYEDGE allows you to make changes to your itinerary, including modifying dates, accommodations, activities, and transportation. Our system will automatically recalculate costs and check availability based on your changes. We also provide information about cancellation policies and potential fees when you make modifications.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 8 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">How does VOYEDGE ensure I get the best travel deals?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">VOYEDGE partners with thousands of travel providers and continuously scans for the best deals. Our price comparison engine checks across multiple booking platforms to find the lowest prices. We also apply applicable discounts, loyalty programs, and special offers automatically. Additionally, our predictive pricing technology suggests the best times to book to secure the most favorable rates.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 9 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">Can I share my itinerary with friends or family?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">Yes, VOYEDGE makes it easy to share your travel plans. You can share your complete itinerary or specific details via email, messaging apps, or social media. For group trips, you can invite others to collaborate on the itinerary planning process. Shared travelers can view the itinerary, make suggestions, and even contribute to the booking process if you grant them permission.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 10 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">Does VOYEDGE provide travel safety information?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">Yes, safety is a priority at VOYEDGE. We provide up-to-date travel advisories, health information, and safety tips for all destinations. Our platform integrates data from official government sources and trusted international organizations. You'll receive alerts about any emerging safety concerns in your destination, and our mobile app includes emergency contact information and location-based safety features.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 11 -->
+        <div class="faq-item bg-white bg-opacity-70 shadow-md hover:shadow-lg transition-shadow">
+          <div class="relative cursor-pointer p-5" onclick="toggleFaq(this)">
+            <h3 class="font-medium text-gray-800 pr-10 faq-question">What devices and browsers does VOYEDGE support?</h3>
+            <div class="faq-toggle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#0072ff">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+          <div class="faq-answer px-5">
+            <p class="text-gray-600">VOYEDGE is compatible with all major devices and browsers. Our platform works seamlessly on desktops, laptops, tablets, and smartphones. We support the latest versions of Chrome, Safari, Firefox, Edge, and other popular browsers. Additionally, we offer dedicated mobile apps for iOS and Android devices that provide enhanced functionality and offline access to your travel information.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="section__container">
+    <h2>Testimonials</h2>
+    <h1>WHAT THEY ARE SAYING ABOUT US</h1>
+    <div class="section__grid">
+      <div class="section__card">
+        <span><i class="ri-double-quotes-l"></i></span>
+        <h4>ABABABABAB</h4>
+        <p>
+          Best decision we made. Stunning website, exceptional support. Always
+          available. Hassle-free experience!
+
+        </p>
+        <img class="img-test" src="photo/co-founder2.jpg" alt="user" />
+        <h5>Sushobhit Bhimge</h5>
+        <h6>Co-Founder</h6>
+      </div>
+      <div class="section__card">
+        <span><i class="ri-double-quotes-l"></i></span>
+        <h4>Excellent</h4>
+        <p>
+          Efficient, reliable, and results-oriented. Visually appealing
+          website, improved online visibility. Highly recommended!
+        </p>
+        <img class="img-test" src="photo/ceo-founder.jpg" alt="user" />
+        <h5>Nishant Tiwari</h5>
+        <h6>Ceo & Founder</h6>
+      </div>
+      <div class="section__card">
+        <span><i class="ri-double-quotes-l"></i></span>
+        <h4>ABABABABB</h4>
+        <p>
+          They understood our brand and created a stunning website design.
+          Professional, responsive, and and prompt issue resolution
+        </p>
+        <img class="img-test" src="photo/co-founder1.jpg" alt="user" />
+        <h5>Khilesh Singh Rajput</h5>
+        <h6>CO-Founder</h6>
+      </div>
+    </div>
+  </section>
+
+    
+
+    <footer class="relative border border-gray-800">
+      <!-- Background with world map -->
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="bg-sky-100 h-full w-full opacity-100"></div>
+      </div>
+      
+      <!-- Main footer content -->
+      <div class="relative py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Left column: Logo, description, social icons -->
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <div class="text-blue-900 mr-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.95 21q-3.125 0-6.175-1.363t-5.55-3.862-3.862-5.55T3 4.05q0-.45.3-.75t.75-.3h4q.425 0 .713.288t.337.712l.65 3.5q.05.4-.025.675T9.4 8.45L6.975 10.9q.5.925 1.187 1.787t1.513 1.663q.775.775 1.625 1.438t1.775 1.212l2.35-2.35q.225-.225.588-.337t.712-.063l3.45.7q.425.075.7.363T21 16v4q0 .425-.288.713t-.762.287Z"/>
+                  </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-blue-900">VOYEDGE</h2>
+              </div>
+              <p class="text-sm text-gray-700">
+                VOYEDGE is an AI-powered travel assistant that personalizes trips by analyzing your preferences, budget, and constraints. Unlike traditional platforms, it optimizes routes, finds hidden gems, and saves costs in real time, making travel smarter, easier, and more enriching!
+              </p>
+              <div class="flex space-x-4">
+                <a href="#" class="text-gray-600 hover:text-blue-800">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-blue-800">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-blue-800">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="#" class="text-gray-600 hover:text-blue-800">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Middle column: Useful links -->
+            <div class="space-y-6">
+              <div>
+                <h3 class="text-lg font-semibold mb-4 text-gray-900">USEFUL LINKS</h3>
+                <ul class="space-y-3">
+                  <li>
+                    <a href="#" class="flex items-center text-gray-700 hover:text-blue-800">
+                      <i class="fas fa-arrow-right mr-2"></i>
+                      LOGIN/SIGNUP
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="flex items-center text-gray-700 hover:text-blue-800">
+                      <i class="fas fa-arrow-right mr-2"></i>
+                      LOGIN/SIGNUP
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="flex items-center text-gray-700 hover:text-blue-800">
+                      <i class="fas fa-arrow-right mr-2"></i>
+                      LOGIN/SIGNUP
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 class="text-lg font-semibold mb-4 text-gray-900">OUR SERVICES:</h3>
+                <ul class="space-y-2">
+                  <li>
+                    <a href="#" class="text-gray-700 hover:text-blue-800">Plan a trip</a>
+                  </li>
+                  <li>
+                    <a href="#" class="text-gray-700 hover:text-blue-800">Hotels</a>
+                  </li>
+                  <li>
+                    <a href="#" class="text-gray-700 hover:text-blue-800">Flights</a>
+                  </li>
+                  <li>
+                    <a href="#" class="text-gray-700 hover:text-blue-800">Car rentals</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <!-- Right column: Contact info -->
+            <div>
+              <h3 class="text-lg font-semibold mb-4 text-gray-900">CONTACT US:</h3>
+              <div class="space-y-3">
+                <p class="flex flex-col">
+                  <span class="font-medium">Email:</span>
+                  <a href="mailto:sfdwa@gmail.com" class="text-gray-700 hover:text-blue-800">sfdwa@gmail.com</a>
+                </p>
+                <p class="flex flex-col">
+                  <span class="font-medium">Helpline number/call us:</span>
+                  <a href="tel:+917853455687" class="text-gray-700 hover:text-blue-800">+917853455687</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Copyright footer -->
+      <div class="relative py-4 border-t border-gray-200">
+        <div class="text-center text-gray-800">
+          ©️ 2025 VOYEDGE
+        </div>
+      </div>
+    </footer>
+  
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('bg-white/80', 'backdrop-transparent-md', 'shadow-sm');
+            } else {
+                navbar.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-sm');
+            }
+        });
+
+        function toggleFaq(element) {
+      const parent = element.parentElement;
+      const toggle = element.querySelector('.faq-toggle');
+      const answer = parent.querySelector('.faq-answer');
+      
+      // Close all other FAQs
+      document.querySelectorAll('.faq-answer.active').forEach(item => {
+        if (item !== answer) {
+          item.classList.remove('active');
+          item.previousElementSibling.querySelector('.faq-toggle').classList.remove('active');
+        }
+      });
+      
+      // Toggle current FAQ
+      answer.classList.toggle('active');
+      toggle.classList.toggle('active');
+    }
+    
+    // Open the first FAQ item by default
+    document.addEventListener('DOMContentLoaded', function() {
+      const firstFaq = document.querySelector('.faq-item');
+      if (firstFaq) {
+        const clickableArea = firstFaq.querySelector('[onclick]');
+        toggleFaq(clickableArea);
+      }
+    });
+
+
+    //hotels set deta
+
+    
+  </script>
+
+    
+</body>
+</html>
