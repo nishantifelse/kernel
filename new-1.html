@@ -37,6 +37,7 @@
         
         .input-group {
             margin-bottom: 20px;
+            
         }
         
         .input-group label {
@@ -69,7 +70,7 @@
         
         button {
             width: 100%;
-            background-color: #4285f4;
+            background-color: #5c95f0;
             color: white;
             border: none;
             padding: 12px;
@@ -80,7 +81,8 @@
         }
         
         button:hover {
-            background-color: #3367d6;
+            background-color: #5b8dfb;
+            box-shadow: 1px 1px 10px #5b8dfb;
         }
         
         .forgot-password {
@@ -112,16 +114,16 @@
         <h2>Log In</h2>
         <form id="loginForm">
             <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
+                <label style="text-align: center; " for="email"></label>
+                <input style="border-radius: 20px;" type="email" id="email" required placeholder="Email">
                 <div id="emailError" class="error-message">Please enter a valid email address</div>
             </div>
             <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" required>
+                <label style="text-align: center; " for="password"></label>
+                <input style="border-radius: 20px;" type="password" id="password" required placeholder="Password">
                 <div id="passwordError" class="error-message">Password must be at least 6 characters</div>
             </div>
-            <button type="submit">Log In</button>
+            <button style="border-radius: 20px;" class="js-button" type="submit">Log In</button>
         </form>
         <div class="forgot-password">
             <a href="#">Forgot password?</a>
@@ -195,9 +197,9 @@
                     console.log('Login form submitted');
                     console.log('Email:', emailInput.value);
                     console.log('Password:', passwordInput.value);
+                    window.location.href="new3.html"
                     
-                    // For demonstration purposes, show an alert
-                    alert('Login successful! In a real app, you would be redirected now.');
+                    
                     
                     // Optional: Reset the form
                     loginForm.reset();
